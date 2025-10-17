@@ -1,58 +1,81 @@
 "use client";
-import * as React from "react";
+
+import Image from "next/image";
 import { motion } from "framer-motion";
 
-/**
- * TechEcosystem — Logo Grid (monotone → colored on hover)
- * -------------------------------------------------------
- * Stack: Next.js | FastAPI | AWS | LangChain | PostgreSQL | Docker | Prisma | Cloudflare
- * Drop-in: components/site/TechEcosystem.tsx
- */
+const stacks = [
+	{
+		name: "Next.js",
+		logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+		desc: "React-based full-stack framework for modern web apps.",
+	},
+	{
+		name: "React",
+		logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+		desc: "Declarative, component-based UI library for the web.",
+	},
+	{
+		name: "TypeScript",
+		logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+		desc: "Type-safe JavaScript for large-scale applications.",
+	},
+	{
+		name: "Prisma",
+		logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+		desc: "Next-generation ORM for Node.js and TypeScript.",
+	},
+	{
+		name: "PostgreSQL",
+		logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+		desc: "Reliable open-source relational database.",
+	},
+	{
+		name: "Cloudflare",
+		logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg",
+		desc: "Global CDN, DNS & security edge network.",
+	},
+];
 
-// 1) Custom icon props that include fillGradient
-type LogoIconProps = React.SVGProps<SVGSVGElement> & { fillGradient?: boolean };
-
-// 2) Logo item uses the custom prop type (so <Icon fillGradient /> is allowed)
-type LogoItem = {
-	name: string;
-	icon: (props: LogoIconProps) => React.JSX.Element;
-};
-
-export default function TechEcosystem() {
-	const items: LogoItem[] = [
-		{ name: "Next.js", icon: NextIcon },
-		{ name: "FastAPI", icon: FastAPIIcon },
-		{ name: "AWS", icon: AWSIcon },
-		{ name: "LangChain", icon: LangChainIcon },
-		{ name: "PostgreSQL", icon: PostgresIcon },
-		{ name: "Docker", icon: DockerIcon },
-		{ name: "Prisma", icon: PrismaIcon },
-		{ name: "Cloudflare", icon: CloudflareIcon },
-	];
-
+export default function TechStackMarquee() {
 	return (
-		<section id="tech" className="relative bg-[#030712] py-16 sm:py-24">
-			{/* backdrop grid */}
-			<div
-				aria-hidden
-				className="absolute inset-0 opacity-[0.08]"
-				style={{
-					backgroundImage:
-						"repeating-linear-gradient(0deg, rgba(255,255,255,0.25) 0 1px, transparent 1px 28px), repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0 1px, transparent 1px 28px)",
-					maskImage:
-						"radial-gradient(1200px 600px at 50% 35%, rgba(0,0,0,0.92), transparent 70%)",
-					WebkitMaskImage:
-						"radial-gradient(1200px 600px at 50% 35%, rgba(0,0,0,0.92), transparent 70%)",
-				}}
-			/>
+		<section className="relative overflow-hidden bg-[#030712] py-24 sm:py-28 text-white">
+			{/* Background layers */}
+			<div className="absolute inset-0">
+				<div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,#22d3ee_0%,transparent_60%),radial-gradient(120%_80%_at_50%_110%,#10b981_0%,transparent_60%)] opacity-[0.22]" />
+				<div className="absolute left-[-10%] top-[-20%] h-[55vmax] w-[55vmax] rounded-full bg-cyan-400/15 blur-[90px] animate-float-slow" />
+				<div className="absolute right-[-15%] top-[10%] h-[40vmax] w-[40vmax] rounded-full bg-emerald-400/15 blur-[100px] animate-float" />
+				<div className="absolute left-[10%] bottom-[-10%] h-[45vmax] w-[45vmax] rounded-full bg-teal-300/15 blur-[80px] animate-float-medium" />
+				<div className="absolute inset-0 opacity-[0.14]">
+					<svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<pattern
+								id="grid"
+								width="42"
+								height="42"
+								patternUnits="userSpaceOnUse">
+								<path
+									d="M 42 0 L 0 0 0 42"
+									fill="none"
+									stroke="rgba(163,230,216,0.25)"
+									strokeWidth="1"
+								/>
+							</pattern>
+						</defs>
+						<rect width="100%" height="100%" fill="url(#grid)" />
+					</svg>
+				</div>
+				<div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_40%,transparent,rgba(3,7,18,0.85))]" />
+			</div>
 
-			<div className="relative z-10 mx-auto max-w-7xl px-6">
-				<div className="mx-auto mb-8 max-w-2xl text-center">
+			{/* Content */}
+			<div className="relative z-10 mx-auto max-w-7xl px-6 text-center space-y-8">
+				{/* Header */}
+				<div className="space-y-3 sm:space-y-4">
 					<div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12px] text-white/70 backdrop-blur">
 						<span className="inline-block h-1.5 w-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400" />
 						Tech Ecosystem
 					</div>
-					<h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
 						Trusted tools.{" "}
 						<span className="bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent">
 							Tailored innovation.
@@ -60,298 +83,85 @@ export default function TechEcosystem() {
 					</h2>
 				</div>
 
-				<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-					{items.map((it, i) => (
-						<Tile key={it.name} index={i} {...it} />
-					))}
+				{/* Marquee */}
+				<div className="relative overflow-hidden mt-6 sm:mt-10">
+					<motion.div
+						className="flex gap-10"
+						animate={{ x: ["0%", "-50%"] }}
+						transition={{ repeat: Infinity, ease: "linear", duration: 35 }}>
+						{[...stacks, ...stacks].map((stack, i) => (
+							<div
+								key={i}
+								className="group relative flex min-w-[160px] sm:min-w-[180px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-[#030712]/60 px-6 py-5 backdrop-blur-xl transition duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_25px_rgba(6,182,212,0.15)]">
+								<div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-emerald-400/10 opacity-0 blur-xl transition group-hover:opacity-100" />
+								<div className="relative h-12 w-12 sm:h-14 sm:w-14 mb-3">
+									<Image
+										src={stack.logo}
+										alt={stack.name}
+										fill
+										sizes="60px"
+										className="object-contain opacity-80 group-hover:opacity-100 transition"
+									/>
+								</div>
+								<p className="text-sm font-medium text-white/90">
+									{stack.name}
+								</p>
+								<div className="absolute bottom-[115%] left-1/2 hidden w-48 -translate-x-1/2 rounded-lg border border-cyan-400/20 bg-[#0f172a]/95 p-2 text-xs text-white/80 shadow-lg group-hover:block">
+									{stack.desc}
+									<div className="absolute left-1/2 top-full -translate-x-1/2 border-[6px] border-transparent border-t-[#0f172a]/95" />
+								</div>
+							</div>
+						))}
+					</motion.div>
 				</div>
 			</div>
+
+			{/* Subtle moving glow */}
+			<motion.div
+				className="pointer-events-none absolute top-0 left-0 h-full w-[60%] bg-gradient-to-r from-cyan-500/10 via-emerald-400/10 to-transparent blur-3xl"
+				animate={{ x: ["-30%", "130%"] }}
+				transition={{ repeat: Infinity, ease: "linear", duration: 18 }}
+			/>
+
+			{/* Floating animation keyframes */}
+			<style jsx>{`
+				@keyframes float {
+					0%,
+					100% {
+						transform: translate3d(0, 0, 0);
+					}
+					50% {
+						transform: translate3d(-2%, 3%, 0);
+					}
+				}
+				@keyframes float-slow {
+					0%,
+					100% {
+						transform: translate3d(0, 0, 0) scale(1);
+					}
+					50% {
+						transform: translate3d(2%, -2%, 0) scale(1.05);
+					}
+				}
+				@keyframes float-medium {
+					0%,
+					100% {
+						transform: translate3d(0, 0, 0) scale(1);
+					}
+					50% {
+						transform: translate3d(-3%, 2%, 0) scale(1.03);
+					}
+				}
+				.animate-float {
+					animation: float 16s ease-in-out infinite;
+				}
+				.animate-float-slow {
+					animation: float-slow 24s ease-in-out infinite;
+				}
+				.animate-float-medium {
+					animation: float-medium 20s ease-in-out infinite;
+				}
+			`}</style>
 		</section>
-	);
-}
-
-/* --------------------------------- Tile ---------------------------------- */
-
-function Tile({ name, icon: Icon, index }: LogoItem & { index: number }) {
-	return (
-		<motion.div
-			initial={{ opacity: 0, y: 10 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, margin: "-80px" }}
-			transition={{ duration: 0.45, delay: 0.03 * index }}
-			className="group relative flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
-			{/* glow ring */}
-			<div
-				className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-60 blur-[6px] transition-opacity group-hover:opacity-90"
-				style={{
-					background:
-						"linear-gradient(135deg, rgba(34,211,238,0.18), rgba(16,185,129,0.18))",
-				}}
-			/>
-
-			{/* Icon: monotone -> gradient on hover (two layers) */}
-			<div className="relative h-9 w-9">
-				{/* monochrome */}
-				<Icon className="absolute inset-0 h-9 w-9 text-white/70 opacity-100 transition-opacity group-hover:opacity-0" />
-				{/* gradient */}
-				<Icon
-					className="absolute inset-0 h-9 w-9 opacity-0 transition-opacity group-hover:opacity-100"
-					style={{ filter: "drop-shadow(0 0 10px rgba(0,255,200,0.25))" }}
-					fillGradient
-				/>
-			</div>
-
-			<span className="text-sm font-medium text-white/85">{name}</span>
-		</motion.div>
-	);
-}
-
-/* ------------------------------- Icons (SVG) ------------------------------ */
-// Each icon supports two modes:
-// - Default: currentColor strokes/fills (monotone)
-// - With prop `fillGradient`, applies a cyan→green gradient
-
-function gradientDefs(id: string) {
-	return (
-		<defs>
-			<linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-				<stop offset="0%" stopColor="#67e8f9" />
-				<stop offset="100%" stopColor="#6ee7b7" />
-			</linearGradient>
-		</defs>
-	);
-}
-
-function NextIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="Next.js"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<circle
-				cx="12"
-				cy="12"
-				r="10"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.5"
-			/>
-			<path
-				d="M7.5 8v8"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.6"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M12 8l4.5 8"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.6"
-				strokeLinecap="round"
-			/>
-		</svg>
-	);
-}
-
-function FastAPIIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="FastAPI"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<path
-				d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.5"
-			/>
-			<path
-				d="M12 6l4 6-4 6-4-6 4-6Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.5"
-			/>
-		</svg>
-	);
-}
-
-function AWSIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg viewBox="0 0 24 24" className={className} aria-label="AWS" {...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<path
-				d="M4 10c2-4 14-4 16 0"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.4"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M6 14c3 2 9 2 12 0"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.4"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M8 17c2 1 6 1 8 0"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.4"
-				strokeLinecap="round"
-			/>
-		</svg>
-	);
-}
-
-function LangChainIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="LangChain"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<path
-				d="M7 12a3 3 0 0 1 3-3h2a3 3 0 1 1 0 6h-2a3 3 0 0 1-3-3Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.6"
-			/>
-			<path
-				d="M10 9 14 15"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.6"
-				strokeLinecap="round"
-			/>
-		</svg>
-	);
-}
-
-function PostgresIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="PostgreSQL"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<path
-				d="M12 4c5 0 8 2 8 5s-3 5-8 5-8-2-8-5 3-5 8-5Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.4"
-			/>
-			<path
-				d="M9 14c0 2 1 4 3 6 2-2 3-4 3-6"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.4"
-				strokeLinecap="round"
-			/>
-		</svg>
-	);
-}
-
-function DockerIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="Docker"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<rect
-				x="4"
-				y="11"
-				width="4"
-				height="3"
-				rx="0.6"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-			/>
-			<rect
-				x="9"
-				y="11"
-				width="4"
-				height="3"
-				rx="0.6"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-			/>
-			<rect
-				x="14"
-				y="11"
-				width="4"
-				height="3"
-				rx="0.6"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-			/>
-			<rect
-				x="9"
-				y="7"
-				width="4"
-				height="3"
-				rx="0.6"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-			/>
-			<path
-				d="M3 15c0 3 4 5 9 5s9-2 9-5H3Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-			/>
-		</svg>
-	);
-}
-
-function PrismaIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="Prisma"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<path
-				d="M6 18 12 4l6 10-6 4-6-0Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeLinejoin="round"
-				strokeWidth="1.6"
-			/>
-		</svg>
-	);
-}
-
-function CloudflareIcon({ className, fillGradient, ...rest }: LogoIconProps) {
-	const gid = React.useId();
-	return (
-		<svg
-			viewBox="0 0 24 24"
-			className={className}
-			aria-label="Cloudflare"
-			{...rest}>
-			{fillGradient && gradientDefs(gid)}
-			<path
-				d="M7 15a4 4 0 1 1 2-7.5A5 5 0 1 1 17 15H7Z"
-				fill="none"
-				stroke={fillGradient ? `url(#${gid})` : "currentColor"}
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</svg>
 	);
 }

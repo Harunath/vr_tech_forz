@@ -63,11 +63,10 @@ export default function Hero() {
 					</div>
 
 					<h1 className="mt-6 text-4xl font-semibold tracking-tight text-white md:text-6xl">
-						Engineering Tomorrow’s{" "}
 						<span className="bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent">
-							Tech
-						</span>
-						, Today.
+							Technology
+						</span>{" "}
+						That Scales With Your Vision.
 					</h1>
 
 					<p className="mx-auto mt-5 max-w-2xl text-balance text-base text-white/70 md:text-lg">

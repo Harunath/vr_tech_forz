@@ -49,7 +49,7 @@ export default function InnovationShowcase() {
 	};
 
 	return (
-		<section id="work" className="relative bg-[#030712] py-16 sm:py-24">
+		<section id="#innovation" className="relative bg-[#030712] py-16 sm:py-24">
 			{/* backdrop grid */}
 			<div
 				aria-hidden
