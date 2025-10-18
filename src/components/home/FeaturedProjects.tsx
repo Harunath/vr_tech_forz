@@ -22,7 +22,7 @@ const PROJECTS: Project[] = [
 		blurb:
 			"A digital initiative empowering farmers through knowledge sharing, sustainable practices, and direct access to agri resources and market networks. VR Kisan Parivaar aims to build a connected farming community promoting innovation and rural growth.",
 		leftImg:
-			"https://res.cloudinary.com/dgulr1hgd/image/upload/v1752473766/farmers-shaking-hands-during-harvest_cp2837.jpg",
+			"https://res.cloudinary.com/dgulr1hgd/image/upload/v1752474531/Comp4_xlcf1s.jpg",
 		rightImg:
 			"https://res.cloudinary.com/dgulr1hgd/image/upload/v1752474120/Agricultural-Systems-of-the-World_uf0f5q.jpg",
 	},
