@@ -7,7 +7,7 @@ import Vision from "@/components/home/Vision";
 import ProjectShowcase from "@/components/home/ProjectShowcase";
 import React from "react";
 import Process from "@/components/home/Process";
-// import FeaturedProjects from "@/components/home/FeaturedProjects";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
 
 function page() {
 	return (
@@ -18,7 +18,7 @@ function page() {
 
 			<CoreCapabilities />
 			<TechEcosystem />
-			{/* <FeaturedProjects /> */}
+			<FeaturedProjects />
 			<Process />
 			<Vision />
 			<InnovationShowcase />
