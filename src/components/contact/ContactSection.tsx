@@ -93,7 +93,7 @@ export default function ContactSection() {
 							<div className="mt-5 space-y-2 text-sm text-white/80">
 								<ContactInfo
 									icon={<Mail size={16} />}
-									text="contact@vrtechforz.com"
+									text="info@vrtechforz.com"
 								/>
 								<ContactInfo
 									icon={<MapPin size={16} />}

@@ -28,9 +28,9 @@ export default function Footer() {
 					{/* Contact + Social */}
 					<nav className="flex flex-wrap items-center gap-3 text-sm">
 						<a
-							href="mailto:hello@vrtechforz.com"
+							href="mailto:info@vrtechforz.com"
 							className="rounded-md px-2 py-1 text-white/85 hover:text-white hover:bg-white/5 transition">
-							hello@vrtechforz.com
+							info@vrtechforz.com
 						</a>
 
 						<span
