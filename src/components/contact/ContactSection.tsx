@@ -83,7 +83,7 @@ export default function ContactSection() {
 					<div className="absolute bottom-6 left-6 right-6">
 						<div className="rounded-xl border border-white/10 bg-white/5 px-5 py-6 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
 							<h3 className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-2xl font-semibold text-transparent md:text-3xl">
-								Let’s Grow Your Business
+								Let&apos;s Grow Your Business
 							</h3>
 							<p className="mt-2 max-w-sm text-sm text-white/70">
 								We build product-grade software, modern websites, and growth

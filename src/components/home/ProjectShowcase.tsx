@@ -55,7 +55,7 @@ export default function ProjectShowcase() {
 					</div>
 					<h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight">
 						<span className="bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent">
-							Beautiful, Fast &amp; Scalable Websites
+							Cutting Edge, Fast &amp; Scalable Websites
 						</span>
 					</h2>
 					<p className="mx-auto max-w-xl text-sm sm:text-base text-white/70">
