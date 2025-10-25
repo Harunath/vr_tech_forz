@@ -9,6 +9,7 @@ import React from "react";
 import Process from "@/components/home/Process";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import ContactSection from "@/components/contact/ContactSection";
+import IndustriesSection from "@/components/home/Industries";
 
 function page() {
 	return (
@@ -16,7 +17,7 @@ function page() {
 			<Hero />
 
 			<ProjectShowcase />
-
+			<IndustriesSection />
 			<CoreCapabilities />
 			<TechEcosystem />
 			<FeaturedProjects />
